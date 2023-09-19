@@ -155,7 +155,7 @@
     {
       "lean": "example (P Q R S T U: Type)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
       "isSolved": true,
-      "editorText": "apply l,\r\napply j,\r\napply h,\r\nexact p,\r\n"
+      "editorText": "have q := h(p),\r\nhave t := j(q),\r\nhave u := l(t),\r\nexact u,\r\n"
     },
     {
       "lean": "example (P Q : Type) : P → (Q → P) :=\n",
@@ -184,39 +184,48 @@
     },
     {
       "lean": "example (P Q : Prop) (p : P) (h : P → Q) : Q :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "exact h(p),\r\n"
     },
     {
       "lean": "lemma imp_self (P : Prop) : P → P :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro p,\r\nexact p,\r\n"
     },
     {
       "lean": "lemma maze (P Q R S T U: Prop)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "have q := h(p),\r\nhave t := j(q),\r\nhave u := l(t),\r\nexact u,\r\n"
     },
     {
       "lean": "lemma maze (P Q R S T U: Prop)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "apply l,\r\napply j,\r\napply h,\r\nexact p,\r\n"
     },
     {
       "lean": "example (P Q : Prop) : P → (Q → P) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro p,\r\nintro q,\r\nexact p,"
     },
     {
       "lean": "example (P Q R : Prop) : (P → (Q → R)) → ((P → Q) → (P → R)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intros f h p,\r\napply (f p),\r\napply h,\r\nexact p,\r\n\r\n"
     },
     {
       "lean": "lemma imp_trans (P Q R : Prop) : (P → Q) → ((Q → R) → (P → R)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intros pq qr p,\r\napply qr,\r\napply pq,\r\nexact p,\r\n"
     },
     {
       "lean": "lemma contrapositive (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "repeat {rw not_iff_imp_false},\r\nintros pq qn p,\r\napply qn,\r\napply pq,\r\nexact p,"
     },
     {
       "lean": "example (A B C D E F G H I J K L : Prop)\n(f1 : A → B) (f2 : B → E) (f3 : E → D) (f4 : D → A) (f5 : E → F)\n(f6 : F → C) (f7 : B → C) (f8 : F → G) (f9 : G → J) (f10 : I → J)\n(f11 : J → I) (f12 : I → H) (f13 : E → H) (f14 : H → K) (f15 : I → L)\n : A → L :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "cc,"
     },
     {
       "lean": "example (P Q : Prop) (p : P) (q : Q) : P ∧ Q :=\n",
